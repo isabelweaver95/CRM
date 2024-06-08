@@ -1,13 +1,22 @@
-code .gitignore
-# Ignore Firebase service account key
-config/serviceAccountKey.json
+# Ignore the Firebase service account JSON file
+crm-project-eb2d8-firebase-adminsdk-ppqq9-89298d2e78.json
 
-# Ignore Python virtual environment
+# Ignore virtual environment directories
 .venv/
+venv/
+
+# Ignore macOS system files
+.DS_Store
 
 # Ignore Python cache files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
-# Ignore environment variable files
-.env
+# Ignore logs
+*.log
+
+# Ignore other temporary files and directories
+*.tmp
+*.temp
+*.swp
