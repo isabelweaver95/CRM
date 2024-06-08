@@ -1,0 +1,13 @@
+code .gitignore
+# Ignore Firebase service account key
+config/serviceAccountKey.json
+
+# Ignore Python virtual environment
+.venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore environment variable files
+.env
