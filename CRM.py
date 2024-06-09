@@ -42,6 +42,7 @@ def get_info():
         selling_price = int(input("What price are they wanting to sell for? "))
         buying = input("Is the client using you to buy another house? yes/no ").lower()
 
+        #what if the client wants to buy a house from them as well
         buying_price = int(input("What price range are they looking at? ")) if buying == "yes" else None
 
         client_data = {
@@ -64,22 +65,35 @@ def get_info():
     return client_data
 
 def main():
-    client = get_info()
-    if client:
-        doc_ref = db.collection("CRM").document(client["id"])
-        retry_count = 5
-        for attempt in range(retry_count):
-            try:
-                doc_ref.set(client)
-                print(f"Document for {client['id']} added successfully.")
-                break
-            except ServiceUnavailable as e:
-                print(f"Attempt {attempt + 1} failed with error: {e}")
-                if attempt < retry_count - 1:
-                    time.sleep(2 ** attempt)  # Exponential backoff
-                else:
-                    print("Failed to add document after several attempts.")
-                    raise
+    print("This program is a CRM that Real estaate agents can use")
+    print("The user can input the name of the buyer/seller, the address of the house, if they are interested, their phone number, notes and price")
+
+    #to keep going
+    forward = True
+    while forward:
+        client = get_info()
+        if client:
+            doc_ref = db.collection("CRM").document(client["id"])
+            retry_count = 5
+            for attempt in range(retry_count):
+                try:
+                    doc_ref.set(client)
+                    print(f"Document for {client['id']} added successfully.")
+                    break
+                except ServiceUnavailable as e:
+                    print(f"Attempt {attempt + 1} failed with error: {e}")
+                    if attempt < retry_count - 1:
+                        time.sleep(2 ** attempt)  # Exponential backoff
+                    else:
+                        print("Failed to add document after several attempts.")
+                        raise
+
+        input = input("Add another client? yes/no ").lower()
+
+        if input != "no": 
+            print("Goodbye! Have a good day!")
+            forward = True
+                  
 
 if __name__ == "__main__":
     main()
