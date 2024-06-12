@@ -88,11 +88,11 @@ def main():
                         print("Failed to add document after several attempts.")
                         raise
 
-        input = input("Add another client? yes/no ").lower()
+        information  = input("Add another client? yes/no ").lower()
 
-        if input != "no": 
+        if information == "no": 
             print("Goodbye! Have a good day!")
-            forward = True
+            forward = False
                   
 
 if __name__ == "__main__":

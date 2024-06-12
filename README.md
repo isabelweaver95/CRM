@@ -6,8 +6,7 @@ The user can input the name of the buyer/seller, the address of the house, if th
 
 The reason why I wrote this code was to learn how to connect code to a cloud database. 
 
-I am currently am using my hotspot, I have it working but my network is not working to be able to show the data base.I will commit it again when I have a better connection. 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/H8N9Mq82Q_4)
 
 # Cloud Database
 
